@@ -4,6 +4,7 @@ pipeline {
     stage('compile') {
       steps {
         build 'compile-job-1'
+        build 'compile-job-2'
       }
     }
 
