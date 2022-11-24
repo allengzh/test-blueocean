@@ -2,15 +2,36 @@ pipeline {
   agent any
   stages {
     stage('compile') {
-      steps {
-        build 'compile-job-1'
-        build 'compile-job-2'
+      parallel {
+        stage('compile-1') {
+          steps {
+            build 'compile-job-1'
+          }
+        }
+
+        stage('compile-2') {
+          steps {
+            build 'compile-job-2'
+          }
+        }
+
       }
     }
 
     stage('deploy') {
-      steps {
-        build 'deploy-job-1'
+      parallel {
+        stage('deploy-1') {
+          steps {
+            build 'deploy-job-1'
+          }
+        }
+
+        stage('deploy-2') {
+          steps {
+            build 'deploy-job-2'
+          }
+        }
+
       }
     }
 
