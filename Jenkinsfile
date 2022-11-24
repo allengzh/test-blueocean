@@ -14,6 +14,12 @@ pipeline {
       }
     }
 
+    stage('sit') {
+      steps {
+        build 'SIT-test-job'
+      }
+    }
+
   }
   environment {
     aa = 'aa'
