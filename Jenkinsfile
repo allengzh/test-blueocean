@@ -1,28 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('hello') {
-      parallel {
-        stage('hello') {
-          steps {
-            echo 'hello'
-          }
-        }
-
-        stage('world') {
-          steps {
-            echo 'world'
-            echo 'end'
-          }
-        }
-
+    stage('compile') {
+      steps {
+        build 'compile-job-1'
       }
     }
 
-    stage('apple') {
+    stage('deploy') {
       steps {
-        echo 'apple'
-        sh 'echo $aa'
+        build 'deploy-job-1'
       }
     }
 
