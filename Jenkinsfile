@@ -18,20 +18,9 @@ pipeline {
       }
     }
 
-    stage('deploy') {
-      parallel {
-        stage('deploy-1') {
-          steps {
-            build 'deploy-job-1'
-          }
-        }
-
-        stage('deploy-2') {
-          steps {
-            build 'deploy-job-2'
-          }
-        }
-
+    stage('deploy-1') {
+      steps {
+        build 'deploy-job-1'
       }
     }
 
