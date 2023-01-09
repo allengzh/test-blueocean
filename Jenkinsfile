@@ -2,9 +2,20 @@ pipeline {
   agent any
   stages {
     stage('compile') {
-      steps {
-        build 'compile-job-1'
-        build 'compile-job-2'
+      parallel {
+        stage('compile') {
+          steps {
+            build 'compile-job-1'
+            build 'compile-job-2'
+          }
+        }
+
+        stage('') {
+          steps {
+            sonarScanner(gitRepoUrl: 'asd', branch: 'asd', scannerDir: 'ad', exclusions: 'ad')
+          }
+        }
+
       }
     }
 
