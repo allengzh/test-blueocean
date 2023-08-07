@@ -3,15 +3,16 @@ pipeline {
   stages {
     stage('compile') {
       parallel {
-        stage('compile-1') {
+        stage('compile') {
           steps {
             build 'compile-job-1'
+            build 'compile-job-2'
           }
         }
 
-        stage('compile-2') {
+        stage('') {
           steps {
-            build 'compile-job-2'
+            sonarScanner(gitRepoUrl: 'asd', branch: 'asd', scannerDir: 'ad', exclusions: 'ad')
           }
         }
 
