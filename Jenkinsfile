@@ -12,7 +12,7 @@ pipeline {
 
         stage('') {
           steps {
-            sonarScanner(gitRepoUrl: 'asd', branch: 'asd', scannerDir: 'ad', exclusions: 'ad')
+            sonarScanner(gitRepoUrl: 'asds', branch: 'asd', scannerDir: 'ad', exclusions: 'ad')
           }
         }
 
