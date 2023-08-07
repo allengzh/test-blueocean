@@ -34,5 +34,6 @@ pipeline {
   }
   environment {
     aa = 'aa'
+    bb = 'bb'
   }
 }
